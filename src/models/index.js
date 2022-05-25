@@ -4,8 +4,12 @@ const Atendimento = require("./Atendimento");
 
 Psicologo.hasMany(Atendimento);
 Paciente.hasMany(Atendimento);
-Atendimento.belongsTo(Psicologo);
-Atendimento.belongsTo(Paciente);
+Atendimento.belongsTo(Psicologo, {
+  foreignKey: "psicologo_id",
+});
+Atendimento.belongsTo(Paciente, {
+  foreignKey: "paciente_id",
+});
 
 // Endereco.belongsTo(Cliente, {
 //   foreignKey: "cliente_codigo",

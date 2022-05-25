@@ -1,11 +1,11 @@
 const { Op } = require("sequelize");
 
-const { Atendimento, Paciente } = require("../models");
+const { Atendimento, Paciente, Psicologo } = require("../models");
 
 const AtendimentoController = {
   async index(req, res) {
     try {
-      const index = await Atendimento.findAll();
+      const index = await Atendimento.findAll({ include: [Paciente, Psicologo]}); // quero volta o psicologo
 
       res.json(index);
 
@@ -39,7 +39,7 @@ const AtendimentoController = {
   async show(req, res) {
     try {
         const { id } = req.params;
-        const atendimento = await Atendimento.findByPk(id);
+        const atendimento = await Atendimento.findByPk(id, { include: [Paciente, Psicologo]});
 
         if(atendimento){
           res.json(atendimento);

@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 
-const { Paciente } = require("../models");
+const { Paciente, Atendimento } = require("../models");
 
 const PacienteController = {
   async index(req, res) {
@@ -38,7 +38,7 @@ const PacienteController = {
   async show(req, res) {
     try {
         const { id } = req.params;
-        const paciente = await Paciente.findByPk(id);
+        const paciente = await Paciente.findByPk(id,{ include: [Atendimento]});
 
         if(paciente){
           res.json(paciente);

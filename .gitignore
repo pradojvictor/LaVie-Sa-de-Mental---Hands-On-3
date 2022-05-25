@@ -1,5 +1,1 @@
 node_modules
-git commit -m "add nodejs/sequelize/nodemon/ todos os 
-arquivos foram separados de acordo com a estrutura mcv, foi feito o crud das 
-3 entidades do banco de dados, foi feito o relacionamento entre as a
- entedade que ligara as demais"
