@@ -8,14 +8,12 @@
     "dev": "nodemon --watch src src/app.js"
   },
   "keywords": [],
-  "author": [
-    "Leonardo Barreiro https://github.com/leobcss",
-    "João Victor Prado",
-    "Francisco Marcelo Borges"
-  ],
+  "author": "[Leonardo Barreiro https://github.com/leobcss] [João Victor Prado] [Francisco Marcelo Borges]",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.18.1",
+    "express-validation": "^4.1.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.19.2"
   },

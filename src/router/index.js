@@ -5,6 +5,12 @@ const routes = express.Router();
 const PsicologoController = require("../controllers/psicologo");
 const PacienteController = require("../controllers/paciente");
 const AtendimentoController = require("../controllers/atendimento");
+const AuthController = require("../controllers/auth");
+
+const { Router } = require("express");
+
+routes.post("/auth/registrar", AuthController.store);
+routes.post("/auth/entrar", AuthController.login);
 
 routes.get("/psicologos/lista", PsicologoController.index);
 routes.get("/psicologos/:id", PsicologoController.show);

@@ -60,4 +60,15 @@ const AtendimentoController = {
 module.exports = AtendimentoController;
 
 
+// indAll({
+//   attributes: { exclude: ['senha’] }
+// })
 
+//atendimento
+// .findAll({
+//     include: [
+//         {
+//             model: Psicologo, 
+//             through: {attributes: { exclude: ['senha’] }}         }
+//     ]
+// })
