@@ -1,4 +1,4 @@
-const { Op } = require("sequelize");
+const { } = require("sequelize");
 
 const { Atendimento, Paciente, Psicologo } = require("../models");
 

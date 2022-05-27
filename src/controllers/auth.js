@@ -1,6 +1,8 @@
-const Login = require("../models/Login");
-
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
+const { Login } = require("../models");
+const secret = require("../configs/secret");
 
 const AuthController = {
     async login(req, res) {
@@ -16,7 +18,20 @@ const AuthController = {
             return res.status(401).json("login inválido");
         }
 
-        return res.json(login);
+        // const { senha: _senha, ...user } = login; // forma facil para retirar um item
+
+        const user = {
+            id: login.id,
+            email: login.email,
+    
+        }
+
+        const token = jwt.sign(user, secret.key);
+
+        return res.json({
+            token,
+            user,
+        });
     },
     async store (req, res) {
         const { email, senha } = req.body;
@@ -27,7 +42,19 @@ const AuthController = {
             senha: hashSenha,
         });
 
-        res.status(201).json(novoLogin);
+        const user = {
+            id: novoLogin.id,
+            email: novoLogin.email,
+        };
+
+        const token = jwt.sign(user, secret.key);
+
+        return res.status(201).json({
+            token,
+            user,
+        });
+
+        // res.status(201).json(novoLogin);
     },   
 };
 

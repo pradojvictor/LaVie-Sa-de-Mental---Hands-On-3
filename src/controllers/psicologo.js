@@ -5,7 +5,7 @@ const { Psicologo } = require("../models");
 const PsicologoController = {
   async index(req, res) {
     try {
-      const index = await Psicologo.findAll();
+      const index = await Psicologo.findAll({attributes: {exclude: ['senha']}});
 
       res.json(index);
 
@@ -39,7 +39,7 @@ const PsicologoController = {
   async show(req, res) {
     try {
         const { id } = req.params;
-        const psicologo = await Psicologo.findByPk(id);
+        const psicologo = await Psicologo.findByPk(id, {attributes: {exclude: ['senha']}});
 
         if(psicologo){
           res.json(psicologo);

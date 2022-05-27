@@ -1,6 +1,7 @@
 const Psicologo = require("./Psicologo");
 const Paciente = require("./Paciente");
 const Atendimento = require("./Atendimento");
+const Login = require("./Login");
 
 Psicologo.hasMany(Atendimento);
 Paciente.hasMany(Atendimento);
@@ -15,4 +16,5 @@ module.exports = {
   Psicologo,
   Atendimento,
   Paciente,
+  Login,
 };

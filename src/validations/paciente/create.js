@@ -1,5 +1,4 @@
 const { validate, Joi } = require("express-validation");
-// const { validator } = require("email-validator");
 
 const { Paciente } = require("../../models");
 
