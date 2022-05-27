@@ -5,7 +5,12 @@ const { Atendimento, Paciente, Psicologo } = require("../models");
 const AtendimentoController = {
   async index(req, res) {
     try {
-      const index = await Atendimento.findAll({ include: [Paciente, Psicologo]}); // quero volta o psicologo
+      const index = await Atendimento.findAll({ include: [Paciente, 
+        {
+        model: Psicologo,
+        attributes: ["id", "nome", "email", "apresentacao"]
+        }
+    ]}); 
 
       res.json(index);
 
@@ -39,7 +44,12 @@ const AtendimentoController = {
   async show(req, res) {
     try {
         const { id } = req.params;
-        const atendimento = await Atendimento.findByPk(id, { include: [Paciente, Psicologo]});
+        const atendimento = await Atendimento.findByPk(id, { include: [Paciente,
+        {
+          model: Psicologo,
+          attributes: ["id", "nome", "email", "apresentacao"]
+        }
+    ]} );
 
         if(atendimento){
           res.json(atendimento);
@@ -59,7 +69,7 @@ const AtendimentoController = {
 
 module.exports = AtendimentoController;
 
-
+// modelo de exclusão
 // indAll({
 //   attributes: { exclude: ['senha’] }
 // })

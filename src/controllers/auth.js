@@ -23,7 +23,6 @@ const AuthController = {
         const user = {
             id: psicologo.id,
             email: psicologo.email,
-            senha: psicologo.senha,
             nome : psicologo.nome,
             apresentacao : psicologo.apresentacao,
         };
