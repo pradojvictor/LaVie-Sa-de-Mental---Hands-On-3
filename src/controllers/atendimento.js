@@ -69,6 +69,6 @@ module.exports = AtendimentoController;
 //     include: [
 //         {
 //             model: Psicologo, 
-//             through: {attributes: { exclude: ['senha’] }}         }
+//             through: {attributes: { exclude: ['senha'] }}         }
 //     ]
 // })

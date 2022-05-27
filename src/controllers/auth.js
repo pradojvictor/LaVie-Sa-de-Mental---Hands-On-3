@@ -1,30 +1,32 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const { Login } = require("../models");
+const { Psicologo } = require("../models");
 const secret = require("../configs/secret");
 
 const AuthController = {
     async login(req, res) {
         const { email, senha } = req.body;
 
-        const login = await Login.findOne({
+        const psicologo = await Psicologo.findOne({
             where: {
                 email,
             },
         });
 
-        if (!login || !bcrypt.compareSync(senha, login.senha)) {
+        if (!psicologo || !bcrypt.compareSync(senha, psicologo.senha)) {
             return res.status(401).json("login inválido");
         }
 
         // const { senha: _senha, ...user } = login; // forma facil para retirar um item
 
         const user = {
-            id: login.id,
-            email: login.email,
-    
-        }
+            id: psicologo.id,
+            email: psicologo.email,
+            senha: psicologo.senha,
+            nome : psicologo.nome,
+            apresentacao : psicologo.apresentacao,
+        };
 
         const token = jwt.sign(user, secret.key);
 
@@ -32,30 +34,32 @@ const AuthController = {
             token,
             user,
         });
-    },
-    async store (req, res) {
-        const { email, senha } = req.body;
-        const hashSenha = bcrypt.hashSync(senha, 10);  // salt será gerado com o número especificado de rodadas e usado "10"
+    }
 
-        const novoLogin = await Login.create({
-            email,
-            senha: hashSenha,
-        });
+//     async store (req, res) {
+//         const { email, senha } = req.body;
+//         const hashSenha = bcrypt.hashSync(senha, 10);  // salt será gerado com o número especificado de rodadas e usado "10"
 
-        const user = {
-            id: novoLogin.id,
-            email: novoLogin.email,
-        };
+//         const novoLogin = await Login.create({
+//             email,
+//             senha: hashSenha,
+//         });
 
-        const token = jwt.sign(user, secret.key);
+//         const user = {
+//             id: novoLogin.id,
+//             email: novoLogin.email,
+//         };
 
-        return res.status(201).json({
-            token,
-            user,
-        });
+//         const token = jwt.sign(user, secret.key);
 
-        // res.status(201).json(novoLogin);
-    },   
+//         return res.status(201).json({
+//             token,
+//             user,
+//         });
+
+//         // res.status(201).json(novoLogin);
+//     },   
+// 
 };
 
 module.exports = AuthController;

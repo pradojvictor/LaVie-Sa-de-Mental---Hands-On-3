@@ -1,5 +1,9 @@
 const { Op } = require("sequelize");
 
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const secret = require("../configs/secret")
+
 const { Psicologo } = require("../models");
 
 const PsicologoController = {
@@ -13,27 +17,37 @@ const PsicologoController = {
       console.log(error.message);
       res
         .status(500)
-        .json({ error: "Oops, tivemos um erro, tente novamente." });
+        .json({ error: "Oops, tivemos um erro, tente novamente" });
     }
   },
   async store(req, res) {
     try {
       const { nome, email, senha, apresentacao } = req.body;
 
-      const newStore = await Psicologo.create({
+      const hashSenha = bcrypt.hashSync(senha, 10); 
+
+      const { id } = await Psicologo.create({
         nome,
         email,
-        senha,
+        senha: hashSenha,
         apresentacao,
       });
 
-      res.json(newStore)
+      const Use = {
+        id,
+        nome,
+        email,
+        apresentacao
+      };
+
+      const token = jwt.sign(Use, secret.key);
+      return res.status(201).json({ token, user});
 
     } catch (error) {
       console.log(error.message);
       res
         .status(500)
-        .json({ error: "Oops, tivemos um erro, tente novamente." });
+        .json({ error: "Oops, tivemos um erro, tente novamente" });
     }
   },
   async show(req, res) {
@@ -98,3 +112,25 @@ const PsicologoController = {
 };
 
 module.exports = PsicologoController;
+
+
+// async store(req, res) {
+//   try {
+//     const { nome, email, senha, apresentacao } = req.body;
+
+//     const newStore = await Psicologo.create({
+//       nome,
+//       email,
+//       senha,
+//       apresentacao,
+//     });
+
+//     res.json(newStore)
+
+//   } catch (error) {
+//     console.log(error.message);
+//     res
+//       .status(500)
+//       .json({ error: "Oops, tivemos um erro, tente novamente." });
+//   }
+// },
