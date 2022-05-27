@@ -33,15 +33,24 @@ const PsicologoController = {
         apresentacao,
       });
 
-      const Use = {
+      // const Use = {
+      //   id,
+      //   nome,
+      //   email,
+      //   apresentacao
+      // };
+
+      const token = jwt.sign({
         id,
         nome,
         email,
         apresentacao
-      };
-
-      const token = jwt.sign(Use, secret.key);
-      return res.status(201).json({ token, user});
+      }, secret.key);
+      return res.status(201).json({ token, 
+        id,
+        nome,
+        email,
+        apresentacao });
 
     } catch (error) {
       console.log(error.message);

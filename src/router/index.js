@@ -8,12 +8,12 @@ const PacienteController = require("../controllers/paciente");
 const AtendimentoController = require("../controllers/atendimento");
 const AuthController = require("../controllers/auth");
 
-const authRegistrarValidador = require("../validations/auth/registrar");
+// const authRegistrarValidador = require("../validations/auth/registrar");
 const authLoginValidador = require("../validations/auth/login");
 
 
 // const pacienteValidador = require("../validations/paciente");
-// const psicologoValidador = require("../validations/psicologo")
+const psicologoCriarValidador = require("../validations/psicologo/create")
 // const atendimentoValidador = require("../validations/atendimento")
 
 
@@ -27,7 +27,7 @@ routes.post("/auth/login", authLoginValidador, AuthController.login);
 
 routes.get("/psicologos/lista",PsicologoController.index);
 routes.get("/psicologos/:id", PsicologoController.show);
-routes.post("/psicologos/criar",authRegistrarValidador, PsicologoController.store);
+routes.post("/psicologos/criar", psicologoCriarValidador, PsicologoController.store);
 routes.put("/psicologos/:id/atualizar", PsicologoController.update);
 routes.delete("/psicologos/:id/deletar", PsicologoController.destroy);
 

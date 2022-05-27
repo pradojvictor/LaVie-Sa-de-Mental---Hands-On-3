@@ -6,7 +6,7 @@ const secret = require("../configs/secret");
 
 const AuthController = {
     async login(req, res) {
-        const { email, senha } = req.body;
+        const { email, senha, } = req.body;
 
         const psicologo = await Psicologo.findOne({
             where: {
