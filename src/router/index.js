@@ -12,18 +12,10 @@ const authRegistrarValidador = require("../validations/auth/registrar");
 const authLoginValidador = require("../validations/auth/login");
 
 
+// const pacienteValidador = require("../validations/paciente");
+// const psicologoValidador = require("../validations/psicologo")
+// const atendimentoValidador = require("../validations/atendimento")
 
-// const pacienteCriarValidador = require("../validations/paciente/create");
-// const pacienteDeleteValidador = require("../validations/paciente/delete");
-// const pacienteshowValidador = require("../validations/paciente/show");
-// const pacienteAtualizarValidador = require("../validations/paciente/delete");
-
-// const psicologoCriarValidador = require("../validations/psicologo/create")
-// const psicologoDeleteValidador = require("../validations/psicologo/delete")
-// const psicologoShowValidador = require("../validations/psicologo/show")
-// const psicologoAtualizarValidador = require("../validations/psicologo/update")
-
-// const atendimentoCriarValidador = require("../validations/atendimento/create")
 
 
 const { Router } = require("express");
