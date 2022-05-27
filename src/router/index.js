@@ -15,6 +15,11 @@ const pacienteDeleteValidador = require("../validations/paciente/delete");
 const pacienteshowValidador = require("../validations/paciente/show");
 const pacienteAtualizarValidador = require("../validations/paciente/delete");
 
+const psicologoCriarValidador = require("../validations/psicologo/create")
+const psicologoDeleteValidador = require("../validations/psicologo/delete")
+const psicologoShowValidador = require("../validations/psicologo/show")
+const psicologoAtualizarValidador = require("../validations/psicologo/update")
+
 
 const { Router } = require("express");
 
@@ -22,10 +27,10 @@ routes.post("/auth/registrar", authRegistrarValidador, AuthController.store);
 routes.post("/auth/login", authLoginValidador, AuthController.login);
 
 routes.get("/psicologos/lista", PsicologoController.index);
-routes.get("/psicologos/:id", PsicologoController.show);
-routes.post("/psicologos/criar", PsicologoController.store);
-routes.put("/psicologos/:id/atualizar", PsicologoController.update);
-routes.delete("/psicologos/:id/deletar", PsicologoController.destroy);
+routes.get("/psicologos/:id", psicologoShowValidador, PsicologoController.show);
+routes.post("/psicologos/criar",psicologoCriarValidador, PsicologoController.store);
+routes.put("/psicologos/:id/atualizar", psicologoAtualizarValidador, PsicologoController.update);
+routes.delete("/psicologos/:id/deletar", psicologoDeleteValidador, PsicologoController.destroy);
 
 routes.get("/pacientes/lista", PacienteController.index);
 routes.get("/pacientes/:id", pacienteshowValidador, PacienteController.show);
