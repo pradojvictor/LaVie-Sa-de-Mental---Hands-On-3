@@ -22,7 +22,7 @@ Api La Vie 1.0.0
 
 => start
 
-    {digite} : a senha do seu banco de dados "database/index.js"
+    {digite}: a senha do seu banco de dados "database/index.js"
     {digite}:  crie uma coleção n Insomnia, todas informações estão em "\docs" 
     {digite/terminal}: npm rum agoravai 
 ##   
