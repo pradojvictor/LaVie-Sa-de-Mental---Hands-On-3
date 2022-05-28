@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon --watch src src/app.js"
+    "agoravai": "nodemon --watch src src/app.js"
   },
   "keywords": [],
-  "author": "[Leonardo Barreiro https://github.com/leobcss] [João Victor Prado] [Francisco Marcelo Borges]",
+  "author": "[João Victor Prado => https://github.com/pradojvictor]",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

@@ -1,0 +1,25 @@
+Api La Vie 1.0.0
+
+=> Necessario antes da inicialização (instalação)
+
+    npm i nodemon
+    npm i sequelize
+    npm i mysql2
+    npm i jsonwebtoken
+    npm i express
+    npm i express-validator
+    npm i express-jwt
+    npm i joi
+    npm i jsonwebtoken
+    npm i bcrypt
+
+
+=> Criação do bando de dados (Criação-MySql)
+
+{caminho}: "LaVie-Hands-On-3-master\sql_start\bando de dados.sql"
+
+=> startt
+
+{digite} : a senha do seu banco de dados "database/index.js"
+{digite}:  crie uma coleção n Insomnia, todas informações estão em "\docs"
+{digite/terminal}: npm rum agoravai  
