@@ -23,11 +23,12 @@ const AtendimentoController = {
   },
   async store(req, res) {
     try {
-      const { data_atendimento, observacao, paciente_id, psicologo_id } = req.body;
+      const { data_atendimento, observacao, paciente_id } = req.body;
+      const { id } = req.auth;
 
       const newStore = await Atendimento.create({
         paciente_id,
-        psicologo_id,
+        psicologo_id: id,
         data_atendimento,
         observacao,
       });

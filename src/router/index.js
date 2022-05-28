@@ -23,11 +23,11 @@ routes.get("/", homeController.home);
 routes.post("/auth/login", authLoginValidador, AuthController.login);
 
 //rota do psicologo
-routes.get("/psicologos/lista",PsicologoController.index);
+routes.get("/psicologos",PsicologoController.index);
 routes.get("/psicologos/:id", PsicologoController.show);
-routes.post("/psicologos/criar", psicologoCriarValidador, PsicologoController.store);
-routes.put("/psicologos/:id/atualizar", PsicologoController.update);
-routes.delete("/psicologos/:id/deletar", PsicologoController.destroy);
+routes.post("/psicologos", psicologoCriarValidador, PsicologoController.store);
+routes.put("/psicologos/:id", PsicologoController.update);
+routes.delete("/psicologos/:id", PsicologoController.destroy);
 
 //rota do paciente
 routes.get("/pacientes/lista", PacienteController.index);

@@ -3,7 +3,7 @@ const { validate, Joi } = require("express-validation");
 
 const { Psicologo } = require("../../models");
 
-const validPsicologoExistis = async (value) => {
+const validPsicologoExiste = async (value) => {
   const psicologo = await Psicologo.findOne({ where: { email: value } });
 
   if (psicologo) {
@@ -29,7 +29,7 @@ const validPsicologoExistis = async (value) => {
 module.exports = validate({
   body: Joi.object({
     nome: Joi.string().required(),
-    email: Joi.string().email().external(validPsicologoExistis).required(),
+    email: Joi.string().email().external(validPsicologoExiste).required(),
     senha: Joi.string().required(),
     apresentacao: Joi.string().required(),
   }),

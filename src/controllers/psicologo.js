@@ -109,7 +109,7 @@ const PsicologoController = {
     const psicologo = await Psicologo.findByPk(id);
 
     if (!psicologo) {
-      res.status(404).json({
+     return res.status(404).json({
         message: "Psicologo não encontrado"
       });
     }
