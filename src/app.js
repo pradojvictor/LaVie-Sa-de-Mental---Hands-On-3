@@ -16,7 +16,7 @@ app.use(express.json()); // Faz o parse de Json das requisições e repostas
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(jwtMiddleware.unless({ path: ["/", "/auth/login", "/psicologos/criar"] }));
+app.use(jwtMiddleware.unless({ path: ["/", "/auth/login", "/psicologo"] }));
 
 app.use(authMiddleware);
 

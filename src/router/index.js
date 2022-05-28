@@ -25,20 +25,20 @@ routes.post("/auth/login", authLoginValidador, AuthController.login);
 //rota do psicologo
 routes.get("/psicologos",PsicologoController.index);
 routes.get("/psicologos/:id", PsicologoController.show);
-routes.post("/psicologos", psicologoCriarValidador, PsicologoController.store);
+routes.post("/psicologo", psicologoCriarValidador, PsicologoController.store);
 routes.put("/psicologos/:id", PsicologoController.update);
 routes.delete("/psicologos/:id", PsicologoController.destroy);
 
 //rota do paciente
-routes.get("/pacientes/lista", PacienteController.index);
+routes.get("/pacientes", PacienteController.index);
 routes.get("/pacientes/:id",  PacienteController.show);
-routes.post("/pacientes/criar", pacienteCriaValidador, PacienteController.store);
-routes.put("/pacientes/:id/atualizar", PacienteController.update);
-routes.delete("/pacientes/:id/deletar", PacienteController.destroy);
+routes.post("/pacientes", pacienteCriaValidador, PacienteController.store);
+routes.put("/pacientes/:id", PacienteController.update);
+routes.delete("/pacientes/:id", PacienteController.destroy);
 
 //rota do atendimento
-routes.get("/atendimentos/lista", AtendimentoController.index);
+routes.get("/atendimentos", AtendimentoController.index);
 routes.get("/atendimentos/:id", AtendimentoController.show);
-routes.post("/atendimentos/criar", AtendimentoController.store);
+routes.post("/atendimentos", AtendimentoController.store);
 
 module.exports = routes;
