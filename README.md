@@ -194,5 +194,3 @@ Entrega:
 Deverá ser enviado o link do Github pela plataforma da Gama Academy até a próxima
 sexta-feira às 11:45h
 
-##
-
